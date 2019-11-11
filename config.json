@@ -1,0 +1,14 @@
+{
+    "interrogazioni": [
+        {
+            "materia" : "italiano",
+            "size" : 4,
+            "data" : ""
+        },
+        {
+            "materia" : "matematica",
+            "size" : 2,
+            "data" : ""
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    
+        "persone" : [
+            "Bedin Letizia",
+            "Bove Tommaso",
+            "Bravin Filippo",
+            "Bruno Mattia",
+            "Bruzzone Tommaso",
+            "Cavanna FRancesca",
+            "Cela Kelvin", 
+            "Chiary Daniela",
+            "Costa danilo",
+            "Jimejanovic Dmitri",
+            "Mantero Giorgio",
+            "Meloni Elia",
+            "Milan Elena",
+            "Milea Alessio",
+            "Mongiardino Andrea",
+            "Muscolino lorenzo",
+            "Musi Francesco",
+            "Padovani Dilec",
+            "Parodi Alessandro",
+            "Parodi Cristiano",
+            "Rocchi Emanuele",
+            "Salmonese Lorenzo",
+            "Sansone Carmine",
+            "Scarrà Francesca",
+            "Tessitore Chiara"
+        ],
+
+        "materie" : {
+            "italiano" : [],
+            "matematica" : [],
+            "inlgese" : [],
+            "scienze" : [],
+            "storia" : [],
+            "filosofia" : [] ,
+            "arte" : []
+            }
+}
