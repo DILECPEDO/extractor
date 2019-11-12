@@ -1,5 +1,7 @@
 use easy_http_request::DefaultHttpRequest;
+use serde::Serialize;
 use serde_json;
+use std::error::Error;
 use std::fs;
 
 fn extract_json(file: &str) -> serde_json::value::Value {
@@ -22,11 +24,15 @@ fn random_number(min: i32, max: i32) -> i16 {
 }
 
 fn studente_interrogato(numero_studente: i16, materia: &String) -> bool {
-    let data = extract_json("data.json");
-    let x = data["materia"][materia].as_array().unwrap();
 
-    let x = x.iter()
-        .any(|c| c.as_u64().unwrap() as i16 == numero_studente);
+    let data = extract_json("data.json");
+
+    let x = data["materie"][materia].as_array().unwrap();
+
+    let x = x
+.iter()
+.any(|c| c.as_u64().unwrap() as i16 == numero_studente);
+
     x
 }
 
@@ -38,33 +44,22 @@ fn studente_interrogato(numero_studente: i16, materia: &String) -> bool {
 fn estrazione(config: &String, data: &String) {
     let data = extract_json(data);
     let config = extract_json(config);
-    println!("41");
     // let mut estratti = vec![];
     for i in config["interrogazioni"].as_array().unwrap() {
-        let mut estratti: std::vec::Vec<i16> = vec![];
-        let materia = &i["materia"].as_str().unwrap().to_string();
+        let mut estratti : std::vec::Vec<i16> = Vec::new();
+        let materia = i["materia"].as_str().unwrap().to_string();
         let size = i["size"].as_u64().unwrap() as i16;
-        println!("47");
-        println!("materia -> {}", materia);
-        println!("size -> {}", size);
-
         for a in 0..size {
-            println!("12");
-            println!("{}", a);
+            let mut estratti_da_verificare : std::vec::Vec<i16> = Vec::new();
+            loop {
 
-            println!("13");
-
-            let interrogato: i16 = random_number(1, 25);
-            println!("57");
-            println!("{:?}", interrogato);
-            // if !studente_interrogato(interrogato, materia) {
-            estratti.push(interrogato);
-            println!("{}", interrogato);
-
-            //     break;
-            // }
+                let interrogato: i16 = random_number(1, 25);
+                if !studente_interrogato(interrogato, &materia) && !estratti.contains(&interrogato) {
+                    estratti.push(interrogato);
+                    break;
+                }
+            }
         }
-        println!("loop stopped");
         println!("{} -> {:?}", materia, estratti);
     }
 }
@@ -74,5 +69,7 @@ fn main() {
     // for _ in 0..100 {
     //     println!("{}", random_number(1, 25));
     // }
-    
+
 }
+    
+    

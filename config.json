@@ -9,6 +9,12 @@
             "materia" : "matematica",
             "size" : 2,
             "data" : ""
+        },
+        {
+            "materia" : "filosofia",
+            "size" : 6,
+            "data" : ""
         }
+
     ]
 }
