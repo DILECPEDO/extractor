@@ -74,4 +74,5 @@ fn main() {
     // for _ in 0..100 {
     //     println!("{}", random_number(1, 25));
     // }
+    
 }
